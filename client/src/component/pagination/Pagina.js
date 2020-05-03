@@ -2,7 +2,8 @@ import React from 'react';
 import {Pagination} from 'react-bootstrap';
 import {Link} from 'react-router-dom';
 function Pagina({active, pages}){
-    let start=(Math.ceil(active/5)-1)*5+1;
+    let numPage=5;
+    let start=(Math.ceil(active/numPage)-1)*numPage+1;
     if (pages==0){
         return(
             <Pagination>
@@ -12,7 +13,7 @@ function Pagina({active, pages}){
             </Pagination>
         )
     }
-    let end= start+4;
+    let end= start+numPage-1;
     if (end>pages){
         end= pages;
     }

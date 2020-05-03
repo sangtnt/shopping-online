@@ -224,18 +224,12 @@
   background-image: linear-gradient(to bottom, #51009b, #5800a8, #5e00b5, #6500c2, #6c00cf);
   color: white
 }
-.category-block{
-  position: relative;
-  height: 271px;
-}
-.pagination{
-  position: absolute;
-  right:0;
-  top: 0;
-}
 .pagination a{
   color: black;
 }
 .pagination a:hover{
   text-decoration: none;
+}
+.pagi-cat .pagination{
+  float: right;
 }

@@ -64,10 +64,10 @@ class Category extends Component {
         return (
             <div className="category-block">
                 <Row className="category-container">
-                    <Col md={12}><h2>Danh mục</h2></Col>
+                    <Col md={6}><h2>Danh mục</h2></Col>
+                    <Col className="pagi-cat" md={6}><Pagina active={catPage} pages={catNumPages}/></Col>
                     <List items={category} render={(item)=><CatItem item={item}/>}/>
                 </Row>
-                <Pagina active={catPage} pages={catNumPages}/>
             </div>
         );
     }
