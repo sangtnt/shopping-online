@@ -4,7 +4,7 @@ function CatItem({item}){
     return(
         <Col>
             <img src={item.image}/>
-            <p>{item.category}</p>
+            <p>{item.name}</p>
         </Col>
     )
 }

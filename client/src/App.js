@@ -1,21 +1,14 @@
 import React from 'react';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {Container} from 'react-bootstrap';
-import Menu from './component/menu/Menu';
-import { BrowserRouter as Router } from 'react-router-dom';
-import SalePart from './component/carousel/SalePart';
-import Category from './component/category/Category';
+import Home from "./Home";
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 function App() {
   return (
     <Router>
-      <Container className="shelter-container" fluid>
-        <Menu/>
-        <SalePart/>
-      </Container>
-      <Container fluid className="main-body">
-            <Category/>
-      </Container>
+      <Switch>
+        <Route path="/" component={Home}/>
+      </Switch>
     </Router>
   );
 }
