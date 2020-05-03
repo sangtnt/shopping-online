@@ -4,13 +4,17 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import {Container} from 'react-bootstrap';
 import Menu from './component/menu/Menu';
 import { BrowserRouter as Router } from 'react-router-dom';
+import SalePart from './component/carousel/SalePart';
+import Category from './component/category/Category';
 function App() {
   return (
     <Router>
       <Container className="shelter-container" fluid>
-        <div className="menu-space"></div>
-      <Menu/>
-      <div style={{height: "3000px"}}>ads</div>
+        <Menu/>
+        <SalePart/>
+      </Container>
+      <Container fluid className="main-body">
+            <Category/>
       </Container>
     </Router>
   );

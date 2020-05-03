@@ -1,6 +1,6 @@
 
 .menu-container{
-  background-image: linear-gradient(to bottom, #037fb5, #0287c0, #018fcc, #0197d7, #009fe3);
+  background-image: linear-gradient(to bottom, #51009b, #5800a8, #5e00b5, #6500c2, #6c00cf);
   box-sizing: border-box;
   padding: 5px 0px;
   color: white;
@@ -10,8 +10,21 @@
   z-index: 99999;
   font-weight: bold;
 }
+.carousel{
+  margin-top: 10px;
+}
+.carousel img{
+  height: 210px;
+  filter: saturate(100%) contrast(150%);
+}
+.sale-2 img{
+  width: 100%;
+  height: 100px;
+  filter: saturate(100%) contrast(150%);
+  margin-top: 10px;
+}
 .menu-space{
-  height: 91px;
+  height: 130px;
 }
 .menu-container a, .link-item{
   color: white;
@@ -72,6 +85,28 @@
 }
 .search-container .btn{
   border-radius: 2px;
+  background-image: linear-gradient(to bottom, #51009b, #5800a8, #5e00b5, #6500c2, #6c00cf);
+  outline: none;
+  border: none;
+  padding-left: 25px;
+  padding-right: 25px;
+}
+.search-container .btn:hover{
+  opacity: 0.8;
+}
+.search-container .btn:hover .search-icon{
+  animation: searchAnimation 1s linear infinite;
+}
+@keyframes searchAnimation{
+  0%{
+    transform: rotate(30deg);
+  }
+  50%{
+    transform: rotate(0deg);
+  }
+  100%{
+    transform: rotate(30deg);
+  }
 }
 .menu-search-box{
   height: 40px;
@@ -110,4 +145,54 @@
   100%{
     transform: translate(10%)
   }
+}
+.main-body{
+  background-color: rgba(179, 179, 179, 0.521);
+  padding: 20px 30px !important;
+  margin-top: 20px;
+}
+.category-container{
+  margin-top: 20px;
+  text-align: center;
+  background-color: white;
+}
+.category-container h2{
+  text-align: left;
+  color: rgba(54, 54, 54, 0.76);
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;;
+}
+.category-container .col p{
+  font-size: 1rem;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+.category-container .col{
+  border-top: 1px rgba(179, 179, 179, 0.521) solid;
+  border-right: 1px rgba(179, 179, 179, 0.521) solid;
+  padding-top: 5px;
+  transition: all 0.2s linear;
+}
+.category-container .col img{
+  border-radius: 20px;
+}
+.category-container .col:hover{
+  box-shadow: 0px 0px 2px black;
+  cursor: pointer;
+}
+::-webkit-scrollbar {
+  width: 1px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }

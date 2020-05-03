@@ -5,6 +5,7 @@ import MenuSearch from './MenuSearch'
 class Menu extends Component {
     render() {
         return (
+        <div className="menu-space">
             <Row className="menu-container">
                 <Col>
                    <Row>
@@ -15,6 +16,7 @@ class Menu extends Component {
                    </Row>
                 </Col>
             </Row>
+        </div>
         );
     }
 }
