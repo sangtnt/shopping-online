@@ -1,0 +1,113 @@
+
+.menu-container{
+  background-image: linear-gradient(to bottom, #037fb5, #0287c0, #018fcc, #0197d7, #009fe3);
+  box-sizing: border-box;
+  padding: 5px 0px;
+  color: white;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 99999;
+  font-weight: bold;
+}
+.menu-space{
+  height: 91px;
+}
+.menu-container a, .link-item{
+  color: white;
+  text-decoration: none;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.menu-container a:hover{
+  text-decoration: none;
+  color: white;
+  opacity: 0.8;
+}
+.menu-top{
+  display: flex;
+  height: 25px;
+  line-height: 25px;
+  height: fit-content;
+}
+.menu-top .menu-top-item{
+  font-size: 0.8rem;
+  padding: 0px 5px;
+  height: auto;
+  line-height: 20px;
+}
+.menu-top-space{
+  flex-grow: 1;
+}
+.menu-item-split{
+  border-right: 1px #33CAFF solid;
+  height: max-content;
+  box-sizing: border-box;
+}
+.icon{
+  margin: 0px 3px;
+}
+.icon-brand{
+  font-size: 1rem;
+}
+.menu-search{
+  height: auto;
+  padding: 10px;
+  margin-left: 20px;
+}
+.search-container{
+  background-color: white;
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  padding: 0px!important;
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.37);
+}
+.search-container form{
+  background-color: white;
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  padding: 0px 5px !important;
+  width: 100%;
+}
+.search-container .btn{
+  border-radius: 2px;
+}
+.menu-search-box{
+  height: 40px;
+  border: none;
+  outline: none;
+  flex-grow: 1;
+}
+.menu-logo{
+  font-family: cursive;
+  color: white;
+  display: flex;
+  align-items: center;
+}
+.menu-cart{
+  font-size: 1.5rem;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: cartAnimation 2s ease-in-out infinite;
+}
+.menu-cart:hover{
+  cursor: pointer;
+  opacity: 0.8;
+}
+.cart-shadow{
+  box-shadow: 0px 1px  rgba(0, 0, 0, 0.151);
+}
+@keyframes cartAnimation{
+  0%{
+    transform: translate(10%)
+  }
+  50%{
+    transform: translate(-10%)
+  }
+  100%{
+    transform: translate(10%)
+  }
+}
