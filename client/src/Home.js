@@ -5,6 +5,10 @@ import SalePart from './component/carousel/SalePart';
 import Category from './component/category/Category';
 import { Route } from 'react-router-dom';
 import {Helmet} from "react-helmet";
+import NewProduct from './component/product/NewProduct';
+import Footer from './component/footer/Footer';
+import FlashSold from './component/product/FlashSold';
+import BestRating from './component/product/BestRating';
 function Home() {
   return (
     <div>
@@ -18,7 +22,13 @@ function Home() {
             <SalePart/>
         </Container>
         <Container fluid className="main-body">
-            <Route path="/" component={Category}/>
+          <Route path="/" component={Category}/>
+          <Route path="/" component={NewProduct}/>
+          <Route path="/" component={FlashSold}/>
+          <Route path="/" component={BestRating}/>
+        </Container>
+        <Container fluid>
+        <Route path="/" component={Footer}/>
         </Container>
     </div>
   );

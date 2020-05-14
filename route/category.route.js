@@ -1,14 +1,19 @@
 let express= require('express');
 let router = express.Router();
-let Category = require('../model/category.model')
+var mysql = require('mysql');
 router.route("/").get((req, res)=>{
-    Category.find()
-    .then(category=>{
-        res.json({category});
-    })
-    .catch(err=>{
-        res.status(404, res.send("Can not get data"))
-    })
+    const connection = mysql.createConnection({
+      host: "localhost",
+      user: "root",
+      password: "",
+      database: "shelmark"
+    });
+    connection.connect(function(err) {
+      if (err) throw err;
+      connection.query("SELECT * FROM category", function (err, result, fields) {
+        res.json({category:result});
+      });
+    });
 })
 
-module.exports= router;
+module.exports = router;

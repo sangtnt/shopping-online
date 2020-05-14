@@ -1,11 +1,10 @@
 import React from 'react';
-import {Col} from 'react-bootstrap';
 function CatItem({item}){
     return(
-        <Col>
+        <div className="cat-item cat-border">
             <img src={item.image}/>
-            <p>{item.name}</p>
-        </Col>
+            <div>{item.name}</div>
+        </div>
     )
 }
 export default CatItem;
