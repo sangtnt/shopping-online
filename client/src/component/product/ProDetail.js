@@ -7,19 +7,36 @@ class ProDetail extends Component {
     constructor(props) {
         super(props);
         this.state={
-            product:{}
+            product:{},
+            pathname:""
         }
     }
     componentDidMount(){
         document.body.classList.add('body-pro-detail');
         this.getPro();
     }
+    componentDidUpdate(){
+        this.getPro();
+    }
+    shouldComponentUpdate(nextProps, nextState){
+        console.log(this.state.pathname, " ", nextProps.location.pathname);
+        // console.log(this.state.proId," ",nextState.proId)
+        if (this.state.pathname===nextProps.location.pathname){
+            return false;
+        }
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        })
+        return true;
+    }
     getPro=()=>{
         let {proId}=this.props.match.params;
         Axios.get(`/product/${proId}`)
         .then(product=>{
             this.setState({
-                product: product.data.product[0]
+                product: product.data.product[0],
+                pathname: this.props.location.pathname
             })
         })
     }
