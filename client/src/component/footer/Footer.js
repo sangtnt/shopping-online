@@ -1,5 +1,10 @@
 import React from 'react';
+import {useLocation} from 'react-router-dom';
 function Footer(){
+    let location= useLocation();
+    if (location.pathname.includes("error")){
+        return "";
+    }
     return(
         <div className="footer">
             <div className="shel-des">

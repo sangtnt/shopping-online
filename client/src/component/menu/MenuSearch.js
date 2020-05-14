@@ -2,12 +2,13 @@ import React, { Component } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faShoppingCart, faSearch } from '@fortawesome/free-solid-svg-icons'
 import {Row, Col, Button, Form} from 'react-bootstrap';
+import {Link} from 'react-router-dom';
 class MenuSearch extends Component {
     render() {
         return (
             <Col className="menu-search">
                 <Row>
-                    <Col xs={12} lg={1} className="menu-logo">ShelMark</Col>
+                    <Col xs={12} lg={1} className="menu-logo"><Link style={{fontFamily: "inherit"}} to="/">ShelMark</Link></Col>
                     <Col xs={10} lg={10} className="search-container">
                         <Form>
                             <input className="menu-search-box" placeholder="Tìm sản phẩm, thương hiệu,..."/>

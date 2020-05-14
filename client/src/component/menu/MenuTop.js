@@ -22,8 +22,8 @@ class MenuTop extends Component {
                 <div className="menu-top-space"></div>
                 <div className="menu-top-item"><Link to="/"><FontAwesomeIcon className="icon" icon={faBell} />Thông báo</Link></div>
                 <div className="menu-top-item"><Link to="/"><FontAwesomeIcon className="icon" icon={faQuestionCircle} />Trợ giúp</Link></div>
-                <div className="menu-top-item menu-item-split"><Link to="/signup">Đăng ký</Link></div>
-                <div className="menu-top-item"><Link to="/signin">Đăng nhập</Link></div>
+                <div className="menu-top-item menu-item-split"><a href="/signup">Đăng ký</a></div>
+                <div className="menu-top-item"><a href="/signin">Đăng nhập</a></div>
             </Col>
         );
     }

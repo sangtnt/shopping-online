@@ -1,9 +1,12 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 function CatItem({item}){
     return(
         <div className="cat-item cat-border">
-            <img src={item.image}/>
-            <div>{item.name}</div>
+            <Link to={`/category/${item.id}`} className="link-none">
+                <img src={item.image}/>
+                <div>{item.name}</div>
+            </Link>
         </div>
     )
 }

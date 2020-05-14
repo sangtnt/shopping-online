@@ -4,6 +4,9 @@ import MenuTop from './MenuTop';
 import MenuSearch from './MenuSearch'
 class Menu extends Component {
     render() {
+        if (this.props.location.pathname.includes("error")){
+            return ""
+        }
         return (
         <div className="menu-space">
             <Row className="menu-container">

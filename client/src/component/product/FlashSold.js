@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import List from '../List';
 import axios from 'axios';
 import ProNewItem from './ProNewItem';
-import {Row, Container} from 'react-bootstrap'
-import {Link} from 'react-router-dom'
+import {Row, Container} from 'react-bootstrap';
 class FlashSold extends Component {
     constructor(props){
         super(props);
@@ -29,7 +28,7 @@ class FlashSold extends Component {
         let {products} = this.state;
         return (
             <div className="new-pro-container">
-                <h3>Sản phẩm bán chạy nhất <span className="view-more"><Link to="/product/viewBestSold">Xem thêm</Link></span></h3>
+                <h3>Sản phẩm bán chạy</h3>
                 <Container fluid>
                     <Row className="pro-newitem-container">
                         <List items={products} render={(item)=><ProNewItem product={item}/>}/>

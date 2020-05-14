@@ -45,4 +45,34 @@ router.route("/bestRating").get((req, res)=>{
     });
   });
 })
+router.route("/:proId").get((req, res)=>{
+  const connection = mysql.createConnection({
+    host: "localhost",
+    user: "root",
+    password: "",
+    database: "shelmark"
+  });
+  let proId = req.params.proId;
+  connection.connect(function(err) {
+    if (err) throw err;
+    connection.query("SELECT * FROM products WHERE id="+proId, function (err, result, fields) {
+      res.json({product:result});
+    });
+  });
+})
+router.route("/sameCat/:catId").get((req, res)=>{
+  const connection = mysql.createConnection({
+    host: "localhost",
+    user: "root",
+    password: "",
+    database: "shelmark"
+  });
+  let catId = req.params.catId;
+  connection.connect(function(err) {
+    if (err) throw err;
+    connection.query("SELECT * FROM products WHERE catId="+catId, function (err, result, fields) {
+      res.json({product:result});
+    });
+  });
+})
 module.exports = router;

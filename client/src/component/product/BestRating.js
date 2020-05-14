@@ -30,7 +30,7 @@ class BestRating extends Component {
         let {products} = this.state;
         return (
             <div className="new-pro-container">
-                <h3>Sản phẩm được đánh giá cao <span className="view-more"><Link to="/product/viewBestRating">Xem thêm</Link></span></h3>
+                <h3>Sản phẩm đánh giá cao</h3>
                 <Container fluid>
                     <Row className="pro-newitem-container">
                         <List items={products} render={(item)=><ProNewItem product={item}/>}/>

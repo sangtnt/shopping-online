@@ -2,10 +2,11 @@ import React, { Component } from 'react';
 import List from '../List';
 import axios from 'axios';
 import ProNewItem from './ProNewItem';
-import {Row, Container} from 'react-bootstrap';
-class NewProduct extends Component {
-    constructor(props){
-        super(props);
+import {Row, Container} from 'react-bootstrap'
+
+class SameCat extends Component {
+    constructor(){
+        super();
         this.state={
             products:[]
         }
@@ -14,10 +15,10 @@ class NewProduct extends Component {
         this.getPro();
     }
     getPro=()=>{
-        axios.get('/product/newPro')
+        axios.get(`/product/sameCat/${this.props.catId}`)
         .then(products=>{
             this.setState({
-                products: products.data.product
+                products: [...products.data.product]
             })
         })
         .catch(err=>{
@@ -28,7 +29,7 @@ class NewProduct extends Component {
         let {products} = this.state;
         return (
             <div className="new-pro-container">
-                <h3>Sản phẩm mới nhất</h3>
+                <h3>Sản phẩm tương tự</h3>
                 <Container fluid>
                     <Row className="pro-newitem-container">
                         <List items={products} render={(item)=><ProNewItem product={item}/>}/>
@@ -39,4 +40,4 @@ class NewProduct extends Component {
     }
 }
 
-export default NewProduct;
+export default SameCat;
