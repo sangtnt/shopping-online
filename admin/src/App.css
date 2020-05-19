@@ -1,0 +1,73 @@
+.body-error{
+  height: 100vh;
+  width: 100vw;
+  background-image: linear-gradient(to right top, #051937, #00203c, #00273f, #002e41, #003443);
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.notify{
+  color: red;
+  animation: notifyAnimation 1s infinite linear;
+}
+@keyframes notifyAnimation{
+  0%{
+      color: orange;
+  }
+  100%{
+      color: red;
+  }
+}
+.error-btn{
+  margin-top: 20px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  border-radius: 100px !important;
+}
+.error-title{
+  font-size: 7rem;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  text-align: center;
+}
+.mess-404{
+  font-size: 2rem;
+}
+.error-mess{
+  text-align: center;
+}
+.page-link{
+  padding: 0px !important;
+  border: none !important;
+  margin: 0 !important;
+}
+.pag-link,.pag-link .page-link{
+  margin: 0px;
+  padding: .5rem .75rem !important;
+  color: blue;
+  display: block !important;
+  background-color: white;
+  border: 1px rgba(128, 128, 128, 0.212) solid;
+  margin-bottom: 20px;
+  height: 35px;
+  width: 35px;
+  line-height: 15px;
+  border-radius: 1px;
+  transition: all 0.5s ease-out;
+}
+.disabled{
+  pointer-events: none;
+  color: gray
+}
+.pagi-active{
+  background-image: linear-gradient(to bottom, #51009b, #5800a8, #5e00b5, #6500c2, #6c00cf);
+  color: white
+}
+.pagination a{
+  color: black;
+}
+.pagination a:hover{
+  text-decoration: none;
+}
+.pagi-cat .pagination{
+  float: right;
+}

@@ -18,7 +18,7 @@ class SameCat extends Component {
         axios.get(`/product/sameCat/${this.props.catId}`)
         .then(products=>{
             this.setState({
-                products: [...products.data.product]
+                products: [...products.data.product.slice(0,12)]
             })
         })
         .catch(err=>{

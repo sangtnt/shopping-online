@@ -52,7 +52,6 @@ body{
   margin-top: 20px;
   font-family: Georgia, 'Times New Roman', Times, serif;
   border-radius: 100px !important;
-  animation: btnAnimation 1s infinite linear;
 }
 .error-title{
   font-size: 7rem;
@@ -307,8 +306,6 @@ body{
 .pagi-cat .pagination{
   float: right;
 }
-
-
 .form-body{
   background-image: linear-gradient(to right top, #051937, #121e4d, #2b1f5f, #4a1a6e, #6c0076);
   height: 100vh;
