@@ -1,7 +1,9 @@
 import React from 'react';
 import {Pagination} from 'react-bootstrap';
 import {Link} from 'react-router-dom';
-function Pagina({active, pages}){
+function Pagina({active, pages, location}){
+    let {pathname}=location;
+    let search = location.search;
     let numPage=5;
     let start=(Math.ceil(active/numPage)-1)*numPage+1;
     if (pages==0){
@@ -25,7 +27,7 @@ function Pagina({active, pages}){
         }
         items.push(
             <Pagination.Item key={number}>
-                <Link className={className} to={`/?catPage=${number}`}>{number}</Link>
+                <Link className={className} to={`${pathname}${search.replace(`page=${active}`, `page=${number}`)}`}>{number}</Link>
             </Pagination.Item>
         );
     }
@@ -40,11 +42,11 @@ function Pagina({active, pages}){
     return(
         <div>
             <Pagination>
-                <Link className={className} to={`/?catPage=1`}>‹‹</Link>
-                <Link className={className} to={`/?catPage=${start-1}`}>‹</Link>
+                <Link className={className} to={`${pathname}${search.replace(`page=${active}`, `page=1`)}`}>‹‹</Link>
+                <Link className={className} to={`${pathname}${search.replace(`page=${active}`, `page=${start-1}`)}`}>‹</Link>
                 {items}
-                <Link className={className2} to={`/?catPage=${start+5}`}>›</Link>
-                <Link className={className2} to={`/?catPage=${pages}`}>››</Link>
+                <Link className={className2} to={`${pathname}${search.replace(`page=${active}`, `page=${start+5}`)}`}>›</Link>
+                <Link className={className2} to={`${pathname}${search.replace(`page=${active}`, `page=${pages}`)}`}>››</Link>
             </Pagination>
         </div>
     )

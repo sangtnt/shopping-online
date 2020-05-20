@@ -1,6 +1,21 @@
 let express= require('express');
 let router = express.Router();
 var mysql = require('mysql');
+router.route("/").get((req, res)=>{
+  const connection = mysql.createConnection({
+    host: "localhost",
+    user: "root",
+    password: "",
+    database: "shelmark"
+  });
+  connection.connect(function(err) {
+    if (err) throw err;
+    let {orderby, order} = req.query;
+    connection.query(`SELECT * FROM products ORDER BY ${orderby} ${order}`, function (err, result, fields) {
+      res.json({product:result});
+    });
+  });
+});
 router.route("/newPro").get((req, res)=>{
     const connection = mysql.createConnection({
       host: "localhost",

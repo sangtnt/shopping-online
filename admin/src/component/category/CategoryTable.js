@@ -1,13 +1,13 @@
 import React from 'react';
 import {Table} from 'react-bootstrap';
 import List from '../List';
-function Category({ cat }) {
+function CategoryTable({ cat }) {
     return (
         <Table striped bordered hover size="sm">
             <thead>
                 <tr>
                     <th>#</th>
-                    <th>Name</th>
+                    <th>Tên</th>
                 </tr>
             </thead>
             <tbody>
@@ -24,4 +24,4 @@ function Category({ cat }) {
     )
 }
 
-export default Category;
+export default CategoryTable;
