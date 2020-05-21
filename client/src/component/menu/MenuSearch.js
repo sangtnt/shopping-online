@@ -10,9 +10,9 @@ class MenuSearch extends Component {
                 <Row>
                     <Col xs={12} lg={1} className="menu-logo"><Link style={{fontFamily: "inherit"}} to="/">ShelMark</Link></Col>
                     <Col xs={10} lg={10} className="search-container">
-                        <Form>
-                            <input className="menu-search-box" placeholder="Tìm sản phẩm, thương hiệu,..."/>
-                            <Button variant="primary"><FontAwesomeIcon className="search-icon" icon={faSearch} /></Button>
+                        <Form action="/search" method="GET">
+                            <input name="proName" className="menu-search-box" placeholder="Tìm sản phẩm, thương hiệu,..."/>
+                            <Button type="submit" variant="primary"><FontAwesomeIcon className="search-icon" icon={faSearch} /></Button>
                         </Form>
                     </Col>
                     <Col xs={1} lg={1}className="menu-cart">

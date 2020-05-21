@@ -11,12 +11,12 @@ class Menu extends Component {
         <div className="menu-space">
             <Row className="menu-container">
                 <Col>
-                   <Row>
+                <Row>
                         <MenuTop/>
-                   </Row>
-                   <Row>
+                </Row>
+                <Row>
                         <MenuSearch/>
-                   </Row>
+                </Row>
                 </Col>
             </Row>
         </div>

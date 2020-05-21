@@ -16,6 +16,21 @@ router.route("/").get((req, res)=>{
     });
   });
 });
+router.route("/search").get((req, res)=>{
+  const connection = mysql.createConnection({
+    host: "localhost",
+    user: "root",
+    password: "",
+    database: "shelmark"
+  });
+  let proName = req.query.proName;
+  connection.connect(function(err) {
+    if (err) throw err;
+    connection.query("SELECT * FROM products JOIN category ON products.catId=category.id WHERE products.name Like '%"+proName+"%' OR category.name LIKE '%"+proName+"%'", function (err, result, fields) {
+      res.json({product:result});
+    });
+  });
+})
 router.route("/newPro").get((req, res)=>{
     const connection = mysql.createConnection({
       host: "localhost",
