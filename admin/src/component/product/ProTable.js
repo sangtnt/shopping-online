@@ -18,17 +18,17 @@ function ProTable({ products }) {
             </thead>
             <tbody>
                 <List items={products} render={(item)=>{
-                    let date = new Date(item.date);
+                    let date = new Date(item.proDate);
                     return(
                         <tr>
-                            <td>{item.name}</td>
-                            <td>{item.price}</td>
-                            <td>{item.description}</td>
-                            <td>{item.quantity}</td>
+                            <td>{item.proName}</td>
+                            <td>{item.proPrice}</td>
+                            <td>{item.proDescription}</td>
+                            <td>{item.proQuantity}</td>
                             <td>{date.toString()}</td>
-                            <td>{item.sold}</td>
-                            <td>{item.rating}</td>
-                            <td>{item.catId}</td>
+                            <td>{item.proSold}</td>
+                            <td>{item.proRating}</td>
+                            <td>{item.proCatId}</td>
                         </tr>
                     )
                 }}/>

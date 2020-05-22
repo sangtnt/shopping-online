@@ -14,8 +14,8 @@ function CategoryTable({ cat }) {
                 <List items={cat} render={(item)=>{
                     return(
                         <tr>
-                            <td>{item.id}</td>
-                            <td>{item.name}</td>
+                            <td>{item.catId}</td>
+                            <td>{item.catName}</td>
                         </tr>
                     )
                 }}/>

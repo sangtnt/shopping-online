@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import List from '../List';
 import ProTable from '../product/ProTable';
 import {Container, Row} from 'react-bootstrap'
 class ProSearch extends Component {

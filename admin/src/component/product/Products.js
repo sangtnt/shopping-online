@@ -44,7 +44,7 @@ class Products extends Component {
                 page = 1;
             }
             if (orderby ===null){
-                orderby = "name";
+                orderby = "proName";
             }
             if (order ===null){
                 order = "asc";

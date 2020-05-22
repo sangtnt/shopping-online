@@ -26,7 +26,7 @@ router.route("/search").get((req, res)=>{
   let proName = req.query.proName;
   connection.connect(function(err) {
     if (err) throw err;
-    connection.query("SELECT * FROM products JOIN category ON products.catId=category.id WHERE products.name Like '%"+proName+"%' OR category.name LIKE '%"+proName+"%'", function (err, result, fields) {
+    connection.query("SELECT * FROM products JOIN category ON products.proCatId=category.catId WHERE category.catName LIKE '%"+proName+"%' OR products.proName LIKE '%"+proName+"%'", function (err, result, fields) {
       res.json({product:result});
     });
   });
@@ -40,7 +40,7 @@ router.route("/newPro").get((req, res)=>{
     });
     connection.connect(function(err) {
       if (err) throw err;
-      connection.query("SELECT * FROM products ORDER BY date DESC LIMIT 6", function (err, result, fields) {
+      connection.query("SELECT * FROM products ORDER BY proDate DESC LIMIT 6", function (err, result, fields) {
         res.json({product:result});
       });
     });
@@ -55,7 +55,7 @@ router.route("/flashPro").get((req, res)=>{
   });
   connection.connect(function(err) {
     if (err) throw err;
-    connection.query("SELECT * FROM products ORDER BY sold DESC LIMIT 6", function (err, result, fields) {
+    connection.query("SELECT * FROM products ORDER BY proSold DESC LIMIT 6", function (err, result, fields) {
       res.json({product:result});
     });
   });
@@ -70,7 +70,7 @@ router.route("/bestRating").get((req, res)=>{
   });
   connection.connect(function(err) {
     if (err) throw err;
-    connection.query("SELECT * FROM products ORDER BY rating DESC LIMIT 6", function (err, result, fields) {
+    connection.query("SELECT * FROM products ORDER BY proRating DESC LIMIT 6", function (err, result, fields) {
       res.json({product:result});
     });
   });
@@ -85,7 +85,7 @@ router.route("/:proId").get((req, res)=>{
   let proId = req.params.proId;
   connection.connect(function(err) {
     if (err) throw err;
-    connection.query("SELECT * FROM products WHERE id="+proId, function (err, result, fields) {
+    connection.query("SELECT * FROM products WHERE proId="+proId, function (err, result, fields) {
       res.json({product:result});
     });
   });
@@ -100,7 +100,7 @@ router.route("/sameCat/:catId").get((req, res)=>{
   let catId = req.params.catId;
   connection.connect(function(err) {
     if (err) throw err;
-    connection.query("SELECT * FROM products WHERE catId="+catId, function (err, result, fields) {
+    connection.query("SELECT * FROM products WHERE proCatId="+catId, function (err, result, fields) {
       res.json({product:result});
     });
   });

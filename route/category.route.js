@@ -26,7 +26,7 @@ router.route("/probycategory/:catId").get((req, res)=>{
     if (err) throw err;
     let {catId} = req.params;
     catId= parseInt(catId);
-    connection.query(`SELECT * FROM products WHERE catId=${catId}`, function (err, result, fields) {
+    connection.query(`SELECT * FROM products WHERE proCatId=${catId}`, function (err, result, fields) {
       res.json({products:result});
     });
   });
