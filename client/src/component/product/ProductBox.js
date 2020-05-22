@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {Col, Row} from 'react-bootstrap';
 import {Link} from 'react-router-dom'
-class ProNewItem extends Component {
+class ProductBox extends Component {
     render() {
         let {product}= this.props;
         return (
@@ -23,4 +23,4 @@ class ProNewItem extends Component {
     }
 }
 
-export default ProNewItem;
+export default ProductBox;

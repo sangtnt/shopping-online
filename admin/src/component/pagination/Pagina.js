@@ -4,6 +4,12 @@ import {Link} from 'react-router-dom';
 function Pagina({active, pages, location}){
     let {pathname}=location;
     let search = location.search;
+    if (search===""){
+        search+="?page="+active
+    }
+    if (search!==""&&!search.includes("page")){
+        search+="&page="+active
+    }
     let numPage=5;
     let start=(Math.ceil(active/numPage)-1)*numPage+1;
     if (pages==0){

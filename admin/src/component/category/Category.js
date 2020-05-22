@@ -18,11 +18,16 @@ class Category extends Component {
     }
     shouldComponentUpdate(nextProps, nextState){
         let nextPage= new URLSearchParams(nextProps.location.search).get('page');
-        let page = this.state.page;
-        if(nextPage!==page){
-            return true;
+        if (nextPage===null){
+            nextPage=1;
         }
-        return false;
+        let nextPathname= nextProps.location.pathname;
+        let {pathname}= this.props.location;
+        let {page} = this.state;
+        if(nextPage===page){
+            return false;
+        }
+        return true;
     }
     componentDidUpdate(){
         this.getCategory();
@@ -37,9 +42,13 @@ class Category extends Component {
     getCategory = () => {
         let params = new URLSearchParams(this.props.location.search);
         let page = params.get('page');
+        if (page!== null){
+            let splitIndex= page.search('/');
+            if (splitIndex>0)
+                page = page.slice(0,splitIndex)
+        }
         if (page ===null){
             page = 1;
-            this.props.history.push(`/category?page=${page}`);
         }
         axios.get('/category')
         .then(category=>{

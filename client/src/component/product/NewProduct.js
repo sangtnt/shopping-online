@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import List from '../List';
 import axios from 'axios';
-import ProNewItem from './ProNewItem';
+import ProductBox from './ProductBox';
 import {Row, Container} from 'react-bootstrap';
 class NewProduct extends Component {
     constructor(props){
@@ -31,7 +31,7 @@ class NewProduct extends Component {
                 <h3>Sản phẩm mới nhất</h3>
                 <Container fluid>
                     <Row className="pro-newitem-container">
-                        <List items={products} render={(item)=><ProNewItem product={item}/>}/>
+                        <List items={products} render={(item)=><ProductBox product={item}/>}/>
                     </Row>
                 </Container>
             </div>

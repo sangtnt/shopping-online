@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import List from '../List';
 import axios from 'axios';
-import ProNewItem from './ProNewItem';
+import ProductBox from './ProductBox';
 import {Row, Container} from 'react-bootstrap';
 import {Link} from 'react-router-dom'
 
@@ -33,7 +33,7 @@ class BestRating extends Component {
                 <h3>Sản phẩm đánh giá cao</h3>
                 <Container fluid>
                     <Row className="pro-newitem-container">
-                        <List items={products} render={(item)=><ProNewItem product={item}/>}/>
+                        <List items={products} render={(item)=><ProductBox product={item}/>}/>
                     </Row>
                 </Container>
             </div>

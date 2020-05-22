@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import List from '../List';
-import ProNewItem from '../product/ProNewItem';
+import ProductBox from '../product/ProductBox';
 import {Container, Row } from 'react-bootstrap';
 class ProByCat extends Component {
     constructor(props){
@@ -31,7 +31,7 @@ class ProByCat extends Component {
         return (
             <Container>
                 <Row>
-                    <List items={products} render={(item)=> <ProNewItem product={item}/>}/>
+                    <List items={products} render={(item)=> <ProductBox product={item}/>}/>
                 </Row>
             </Container>
         );
