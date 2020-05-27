@@ -48,18 +48,18 @@ class ProDetail extends Component {
         return (
             <Container fluid>
                 <Row className="pro-detail-container">
-                    <Col xs={12} sm={3} md={4} lg={4}><img className="pro-detail-img" src={product.proImage}/></Col>
+                    <Col xs={12} sm={3} md={4} lg={4}><img className="pro-detail-img" src={product.pro_image}/></Col>
                     <Col className="pro-detail-box">
-                        <div className="pro-detail-name">{product.proName}</div>
+                        <div className="pro-detail-name">{product.pro_name}</div>
                         <div className="pro-com">
-                            <div>{(product.proRating>0)?product.proRating:"Chưa có đánh giá"}</div>
-                            <div>Đã bán: <span>{product.proSold}</span></div>
+                            <div>{(product.pro_rating>0)?product.pro_rating:"Chưa có đánh giá"}</div>
+                            <div>Đã bán: <span>{product.pro_sold}</span></div>
                         </div>
-                        <div className="pro-detail-price">{product.proPrice} $</div>
+                        <div className="pro-detail-price">{product.pro_price} $</div>
                         <div className="pro-detail-quantity">
                             <div className="quan-title">Số lượng</div>
-                            <Quantity quantity={product.proQuantity}/>
-                            <div className="quan-title">Còn {product.proQuantity}</div>
+                            <Quantity quantity={product.pro_quantity}/>
+                            <div className="quan-title">Còn {product.pro_quantity}</div>
                         </div>
                         <div className="btn-pro">
                             <Button className="btn-action" variant="outline-danger" size="lg">Thêm vào giỏ hàng</Button>
@@ -67,7 +67,7 @@ class ProDetail extends Component {
                         </div>
                     </Col>
                 </Row>
-                {(product.proCatId!==undefined?<SameCat catId={product.proCatId}/>:"")}
+                {(product.cat_id!==undefined?<SameCat catId={product.cat_id}/>:"")}
             </Container>
         );
     }

@@ -1,6 +1,8 @@
 import React from 'react';
 import {Table} from 'react-bootstrap';
 import List from '../List';
+import {Link, Route} from 'react-router-dom';
+import ProductModel from './ProductModel'
 function ProTable({ products }) {
     return (
         <Table striped bordered hover size="sm">
@@ -18,21 +20,22 @@ function ProTable({ products }) {
             </thead>
             <tbody>
                 <List items={products} render={(item)=>{
-                    let date = new Date(item.proDate);
+                    let date = new Date(item.pro_date);
                     return(
                         <tr>
-                            <td>{item.proName}</td>
-                            <td>{item.proPrice}</td>
-                            <td>{item.proDescription}</td>
-                            <td>{item.proQuantity}</td>
+                            <td><Link to={`/products/${item.pro_id}`}>{item.pro_name}</Link></td>
+                            <td>{item.pro_price}</td>
+                            <td>{item.pro_description}</td>
+                            <td>{item.pro_quantity}</td>
                             <td>{date.toString()}</td>
-                            <td>{item.proSold}</td>
-                            <td>{item.proRating}</td>
-                            <td>{item.proCatId}</td>
+                            <td>{item.pro_sold}</td>
+                            <td>{item.pro_rating}</td>
+                            <td>{item.cat_id}</td>
                         </tr>
                     )
                 }}/>
             </tbody>
+            <Route path="/products/:proId" component={ProductModel}/>
         </Table>
     )
 }

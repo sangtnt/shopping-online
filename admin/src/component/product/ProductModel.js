@@ -4,22 +4,22 @@ import {Modal ,Button} from 'react-bootstrap';
 import {Link} from 'react-router-dom';
 import { store } from 'react-notifications-component';
 import 'animate.css';
-class CategoryModel extends Component {
+class ProductModel extends Component {
     constructor(){
         super();
         this.state={
-            category: {}
+            product: {}
         }
     }
     componentDidMount(){
-        this.getCategory();
+        this.getProduct();
     }
-    getCategory=()=>{
-        let catId = 2
-        axios.get(`/category/getCatById/${catId}`)
-        .then(category=>{
+    getProduct=()=>{
+        let {proId} = this.props.match.params;
+        axios.get(`/product/getProById/${proId}`)
+        .then(product=>{
             this.setState({
-                category: {...category.data.category[0]}
+                product: {...product.data.product[0]}
             })
         })
         .catch(err=> console.log(err));
@@ -28,10 +28,10 @@ class CategoryModel extends Component {
         let {history} = this.props;
         history.goBack();
     }
-    deleteCategory= ()=>{
-        let {category} = this.state;
+    deleteProduct= ()=>{
+        let {product} = this.state;
         let {history} = this.props;
-        axios.get(`/category/delete/${category.catId}`)
+        axios.get(`/product/delete/${product.pro_id}`)
         .then((res)=>{
             store.addNotification({
                 title: "Successfully!",
@@ -65,7 +65,7 @@ class CategoryModel extends Component {
         })
     }
     render() {
-        let {category} =this.state;
+        let {product} =this.state;
         return (
             <div>
                 <Modal
@@ -74,31 +74,33 @@ class CategoryModel extends Component {
                 >
                     <Modal.Header>
                         <Modal.Title id="contained-modal-title-vcenter">
-                            {category.catName}
+                            {product.pro_name}
                         </Modal.Title>
                     </Modal.Header>
                     <Modal.Body>
                         <div className="user-contain">
-                            <img className="user-info-img" src={category.catImage}/>
+                            <img className="user-info-img" src={product.pro_image}/>
                             <div className="user-info user-info-key">
                                 <p>
-                                    Age:<br/>
-                                    Email:<br/>
-                                    Phone:<br/>
-                                    Country:
+                                    Price:<br/>
+                                    Quantity:<br/>
+                                    Date:<br/>
+                                    Rating:<br/>
+                                    Sold:
                                 </p>
                             </div>
                             <div className="user-info">
-                                {/* {user.age} <br/>
-                                {user.email} <br/>
-                                {user.phone} <br/>
-                                {user.country} */}
+                                {product.pro_price} <br/>
+                                {product.pro_quantity} <br/>
+                                {product.pro_date} <br/>
+                                {product.pro_rating} <br/>
+                                {product.pro_sold}
                             </div>
                         </div>
                     </Modal.Body>
                     <Modal.Footer>
                         <Link to={`/users/update/`}><Button variant="secondary">Edit</Button></Link>
-                        <Button onClick={this.deleteCategory} variant="danger">Delete</Button>
+                        <Button onClick={this.deleteProduct} variant="danger">Delete</Button>
                         <Button onClick={this.closeModel} variant="outline-danger">Close</Button>
                     </Modal.Footer>
                 </Modal>
@@ -107,4 +109,4 @@ class CategoryModel extends Component {
     }
 }
 
-export default CategoryModel;
+export default ProductModel;

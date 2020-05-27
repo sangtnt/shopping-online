@@ -18,11 +18,16 @@ class Products extends Component {
     }
     shouldComponentUpdate(nextProps, nextState){
         let nextPage= new URLSearchParams(nextProps.location.search).get('page');
-        let page = this.state.page;
-        if(nextPage!==page){
-            return true;
+        if (nextPage===null){
+            nextPage=1;
         }
-        return false;
+        let nextPathname= nextProps.location.pathname;
+        let {pathname}= this.props.location;
+        let {page} = this.state;
+        if(nextPage===page){
+            return false;
+        }
+        return true;
     }
     componentDidUpdate(){
         this.getPro();
@@ -44,12 +49,11 @@ class Products extends Component {
                 page = 1;
             }
             if (orderby ===null){
-                orderby = "proName";
+                orderby = "pro_name";
             }
             if (order ===null){
                 order = "asc";
             }
-            this.props.history.push(`/products?page=${page}&orderby=${orderby}&order=${order}`);
         }
         axios.get(`/product?orderby=${orderby}&order=${order}`)
         .then(product=>{

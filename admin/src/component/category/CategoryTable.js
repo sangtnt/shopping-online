@@ -1,8 +1,6 @@
 import React from 'react';
 import {Table} from 'react-bootstrap';
 import List from '../List';
-import { Link, Route} from 'react-router-dom';
-import CategoryModel from './CategoryModel';
 function CategoryTable({ cat }) {
     return (
         <Table striped bordered hover size="sm">
@@ -10,19 +8,20 @@ function CategoryTable({ cat }) {
                 <tr>
                     <th>#</th>
                     <th>Tên</th>
+                    <th>Ảnh</th>
                 </tr>
             </thead>
             <tbody>
                 <List items={cat} render={(item)=>{
                     return(
                         <tr>
-                            <td>{item.catId}</td>
-                            <td><Link to={`/category/${item.catId}`}>{item.catName}</Link></td>
+                            <td>{item.cat_id}</td>
+                            <td>{item.cat_name}</td>
+                            <td><img src={item.cat_image}/></td>
                         </tr>
                     )
                 }}/>
             </tbody>
-            <Route path="/category/:catId" component={CategoryModel}/>
         </Table>
     )
 }

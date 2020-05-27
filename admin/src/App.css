@@ -78,6 +78,7 @@
 .user-info-img{
   border: 1px rgba(153, 153, 153, 0.651) solid;
   border-radius: 10px;
+  width: 134px
 }
 .user-info{
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
