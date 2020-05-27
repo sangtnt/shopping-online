@@ -99,7 +99,7 @@ class ProductModel extends Component {
                         </div>
                     </Modal.Body>
                     <Modal.Footer>
-                        <Link to={`/users/update/`}><Button variant="secondary">Edit</Button></Link>
+                        <Link to={`/products/proEdit/${product.pro_id}`}><Button variant="secondary">Edit</Button></Link>
                         <Button onClick={this.deleteProduct} variant="danger">Delete</Button>
                         <Button onClick={this.closeModel} variant="outline-danger">Close</Button>
                     </Modal.Footer>

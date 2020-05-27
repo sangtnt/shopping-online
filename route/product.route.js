@@ -75,7 +75,23 @@ router.route("/flashPro").get((req, res)=>{
     });
   });
 })
-
+router.route("/delete/:proId").get((req, res)=>{
+  const connection = mysql.createConnection({
+    host: "localhost",
+    user: "root",
+    password: "",
+    database: "shelmark"
+  });
+  connection.connect(function(err) {
+    if(err){
+      res.status(404).send("Delete fail!")
+    }
+    let {proId} = req.params;
+    connection.query("DELETE FROM product WHERE pro_id="+proId, function (err, result, fields) {
+        res.status(200).send("Delete successfully!");
+    });
+  });
+})
 router.route("/bestRating").get((req, res)=>{
   const connection = mysql.createConnection({
     host: "localhost",

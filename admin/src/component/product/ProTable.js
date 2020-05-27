@@ -23,7 +23,7 @@ function ProTable({ products }) {
                     let date = new Date(item.pro_date);
                     return(
                         <tr>
-                            <td><Link to={`/products/${item.pro_id}`}>{item.pro_name}</Link></td>
+                            <td><Link to={`/products/model/${item.pro_id}`}>{item.pro_name}</Link></td>
                             <td>{item.pro_price}</td>
                             <td>{item.pro_description}</td>
                             <td>{item.pro_quantity}</td>
@@ -35,7 +35,7 @@ function ProTable({ products }) {
                     )
                 }}/>
             </tbody>
-            <Route path="/products/:proId" component={ProductModel}/>
+            <Route path="/products/model/:proId" component={ProductModel}/>
         </Table>
     )
 }

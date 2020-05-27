@@ -24,7 +24,7 @@ class Products extends Component {
         let nextPathname= nextProps.location.pathname;
         let {pathname}= this.props.location;
         let {page} = this.state;
-        if(nextPage===page){
+        if(nextPage===page&&nextPathname===pathname){
             return false;
         }
         return true;

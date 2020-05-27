@@ -5,11 +5,13 @@ import Menu from './component/menu/Menu';
 import Category from './component/category/Category';
 import Products from './component/product/Products';
 import ProSearch from './component/search/ProSearch';
+import ProEdit from './component/product/ProductEdit';
 function ShelMark(){
     return(
         <Router>
             <Route path="/" component={Menu}/>
             <Switch>
+                <Route path="/products/proEdit/:proId" component={ProEdit}/>
                 <Route path="/products/search" component={ProSearch}/>
                 <Route path="/products" component={Products}/>
                 <Route path="/category" component={Category}/>
